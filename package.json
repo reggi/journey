@@ -1,7 +1,7 @@
 {
   "name": "@reggi/journey",
   "main": "./index.build.js",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "build": "babel ./index.js --out-file ./index.build.js",
     "test": "jest --coverage"
