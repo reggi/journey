@@ -65,7 +65,7 @@ const helloWorld = journey((greeting, name) => [
 ])
 
 helloWorld('hi', 'Thomas')
-  .then(console.log)
+  .then(v => console.log(JSON.stringify(v))) // {"greeting":"hi","name":"Thomas","cleanGreeting":"Hello","message":"Hello Thomas"}
   .catch(console.log)
 ```
 
