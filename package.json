@@ -1,0 +1,34 @@
+{
+  "name": "@reggi/journey",
+  "main": "./index.build.js",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "babel ./index.js --out-file ./index.build.js",
+    "test": "jest --coverage"
+  },
+  "dependencies": {
+    "lodash": "^4.17.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^22.4.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.4.2"
+  },
+  "babel": {
+    "plugins": [
+      "transform-object-rest-spread"
+    ],
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "4"
+          }
+        }
+      ]
+    ]
+  }
+}
