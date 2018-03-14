@@ -48,6 +48,27 @@ console.log(helloWorld.journey('hi', 'Thomas')) // => {greeting: 'hi', name: 'Th
 
 As you can see all variables declared in the flow are accessable at the end of the function. This is very valuable, because nothing is lost, and everything is accessable.
 
+## Async functions work as well
+
+```js
+const {journey} = require('@reggi/journey')
+const fs = require('fs')
+const util = require('util')
+const fsRead = util.promisify(fs.readFile)
+
+const cleanGreeting = async (greeting) => (greeting === 'hi') ? 'Hello' : greeting
+
+const helloWorld = journey((greeting, name) => [
+  () => ({greeting, name}), // put greeting and name into the object to use
+  async ({greeting}) => ({cleanGreeting: await cleanGreeting(greeting)}), // here we create a new property and return it it gets added to the object,
+  ({cleanGreeting, name}) => ({message: `${cleanGreeting} ${name}`}) // here we have access to `name` and `cleanGreeting`, all we need
+])
+
+helloWorld('hi', 'Thomas')
+  .then(console.log)
+  .catch(console.log)
+```
+
 # Options
 
 The second paramater here is objects that change the essential flow. 
