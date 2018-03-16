@@ -21,19 +21,6 @@
       ]
     ]
   },
-  "dependencies": {
-    "lodash": "^4.17.5",
-    "@reggi/journey.coerce-to-array": "1.0.0",
-    "@reggi/journey.fn-free": "1.0.0",
-    "@reggi/journey.fn-reduce": "1.0.0"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-jest": "^22.4.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "jest": "^22.4.2"
-  },
   "jest": {
     "coverageThreshold": {
       "global": {
@@ -43,5 +30,18 @@
         "statements": 100
       }
     }
+  },
+  "dependencies": {
+    "@reggi/journey.coerce-to-array": "1.0.0",
+    "@reggi/journey.fn-free": "1.0.0",
+    "@reggi/journey.fn-reduce": "1.0.0",
+    "lodash": "^4.17.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^22.4.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.4.2"
   }
 }
