@@ -32,9 +32,9 @@
     }
   },
   "dependencies": {
-    "@reggi/journey.coerce-to-array": "1.0.0",
-    "@reggi/journey.fn-free": "1.0.0",
-    "@reggi/journey.fn-reduce": "1.0.0",
+    "@reggi/journey.coerce-to-array": "file:../journey.coerce-to-array",
+    "@reggi/journey.fn-free": "file:../journey.fn-free",
+    "@reggi/journey.fn-reduce": "file:../journey.fn-reduce",
     "lodash": "^4.17.5"
   },
   "devDependencies": {

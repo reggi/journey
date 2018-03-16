@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">53.57% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>15/28</span>
+        <span class='fraction'>28/28</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">27.27% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/11</span>
+        <span class='fraction'>11/11</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/4</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">57.69% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>15/26</span>
+        <span class='fraction'>26/26</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -94,37 +94,37 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -133,9 +133,9 @@ import coerceToArray from '@reggi/journey.coerce-to-array'
 import fnFree from '@reggi/journey.fn-free'
 import fnReduce from '@reggi/journey.fn-reduce'
 &nbsp;
-export const journey = (fnOfFns, opts = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> =&gt; {
+export const journey = (fnOfFns, opts = {}) =&gt; {
   let resolve
-  <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof opts === 'function') {
+  if (typeof opts === 'function') {
     resolve = opts
     opts = {}
     opts.resolve = resolve
@@ -144,21 +144,21 @@ export const journey = (fnOfFns, opts = <span class="branch-0 cbranch-no" title=
   opts.resolve = get(opts, 'resolve', false)
   opts.return = get(opts, 'return', false)
   opts.exports = get(opts, 'exports', false)
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (opts.exports) {
-<span class="cstat-no" title="statement not covered" >    opts.exports = coerceToArray(opts.exports)</span>
-    const e = <span class="cstat-no" title="statement not covered" >zipObject(opts.exports, opts.exports)</span>
-<span class="cstat-no" title="statement not covered" >    return mapValues(e, <span class="fstat-no" title="function not covered" >ex</span>p =&gt; {</span>
-      const _opts = <span class="cstat-no" title="statement not covered" >clone(opts)</span>
-<span class="cstat-no" title="statement not covered" >      _opts.exports = null</span>
-<span class="cstat-no" title="statement not covered" >      _opts.return = exp</span>
-<span class="cstat-no" title="statement not covered" >      return journey(fnOfFns, _opts)</span>
+  if (opts.exports) {
+    opts.exports = coerceToArray(opts.exports)
+    const e = zipObject(opts.exports, opts.exports)
+    return mapValues(e, exp =&gt; {
+      const _opts = clone(opts)
+      _opts.exports = null
+      _opts.return = exp
+      return journey(fnOfFns, _opts)
     })
   }
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (!opts.resolve) {
-<span class="cstat-no" title="statement not covered" >    resolve = <span class="fstat-no" title="function not covered" >(v</span>) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      if (typeof opts.return === 'string') <span class="cstat-no" title="statement not covered" >return get(v, opts.return)</span></span>
-<span class="cstat-no" title="statement not covered" >      if (opts.return) <span class="cstat-no" title="statement not covered" >return get(v, 'return')</span></span>
-<span class="cstat-no" title="statement not covered" >      return v</span>
+  if (!opts.resolve) {
+    resolve = (v) =&gt; {
+      if (typeof opts.return === 'string') return get(v, opts.return)
+      if (opts.return) return get(v, 'return')
+      return v
     }
   }
   const fn = (...args) =&gt; {
@@ -175,7 +175,7 @@ export default journey
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Mar 16 2018 01:07:35 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Mar 16 2018 04:36:46 GMT-0400 (EDT)
 </div>
 </div>
 <script src="prettify.js"></script>
