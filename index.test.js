@@ -1,11 +1,4 @@
-import journey, {
-  coerceToPlainObject,
-  isPromise,
-  fnReduce,
-  fnFree,
-  fnFree_ERROR_FN_NOT_FN,
-  fnFree_ERROR_RESOLVE_NOT_FN,
-} from './index'
+import journey from './index'
 
 test('to work sync', () => {
   const expectation = { name: 'Thomas', age: '29', namePlusAge: 'Thomas29' }
@@ -124,48 +117,4 @@ test('to work with resolve function', () => {
   ], (v) => v.age)
   expect(example('Thomas')).toEqual(expectation.age)
   expect(example.journey('Thomas')).toEqual(expectation)
-})
-
-test('coerceToPlainObject', () => {
-  expect(coerceToPlainObject('someString')).toEqual({})
-})
-
-test('isPromise', () => {
-  const promA = async () => true
-  const promB = () => Promise.resolve(true)
-  expect(isPromise(true)).toBeFalsy()
-  expect(isPromise(() => {})).toBeFalsy()
-  expect(isPromise(promA())).toBeTruthy()
-  expect(isPromise(promB())).toBeTruthy()
-})
-
-test('fnReduce', () => {
-  const expectation = { name: 'Thomas', age: '29', return: 'Thomas29' }
-  const name = expectation.name
-  const results = fnReduce([
-    () => ({name}),
-    () => ({age: '29'}),
-    ({name, age}) => ({return: name + age})
-  ])
-  expect(results).toEqual(expectation)
-})
-
-test('fnFree', () => {
-  const animal = () => 'tiger' 
-  const result = fnFree(animal, (animal) => `bengal ${animal}`)
-  expect(result()).toBe('bengal tiger')
-  expect(result.journey()).toBe('tiger')
-})
-
-test('fnFree: no fn', () => {
-  expect(() => {
-    fnFree(false, (animal) => `bengal ${animal}`)
-  }).toThrow(fnFree_ERROR_FN_NOT_FN)
-})
-
-test('fnFree: no fn', () => {
-  const animal = () => 'tiger' 
-  expect(() => {
-    fnFree(animal, false)
-  }).toThrow(fnFree_ERROR_RESOLVE_NOT_FN)
 })

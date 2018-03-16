@@ -1,20 +1,10 @@
 {
   "name": "@reggi/journey",
-  "main": "./index.build.js",
   "version": "1.0.0",
+  "main": "./index.build.js",
   "scripts": {
-    "build": "babel ./index.js --out-file ./index.build.js",
+    "babel": "babel ./index.js --out-file ./index.build.js",
     "test": "jest --coverage"
-  },
-  "dependencies": {
-    "lodash": "^4.17.5"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-jest": "^22.4.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "jest": "^22.4.2"
   },
   "babel": {
     "plugins": [
@@ -30,5 +20,28 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "lodash": "^4.17.5",
+    "@reggi/journey.coerce-to-array": "1.0.0",
+    "@reggi/journey.fn-free": "1.0.0",
+    "@reggi/journey.fn-reduce": "1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^22.4.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.4.2"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
   }
 }

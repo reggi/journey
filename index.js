@@ -1,54 +1,7 @@
-import {clone, isArray, isPlainObject, get, mapValues, zipObject} from 'lodash'
-
-export const coerceToArray = (v) => isArray(v) ? v : [v]
-export const coerceToPlainObject = (v) => isPlainObject(v) ? v : {}
-export const isPromise = (obj) => !!obj && (typeof obj === 'object' || typeof obj === 'function') && typeof obj.then === 'function'
-
-export const passThru = (fn, ...args) => {
-  if (!fn) return args
-  const fnResult = fn.apply(null, args)
-  if (isPromise(fnResult)) fnResult.then()
-  return args
-}
-
-export const fnReduce = (fns, state = {}, hook) => {
-  return fns.reduce((acq, fn) => {
-    const handleResult = (acq, result) => cleanResult.apply(null, hookResult(acq, result))
-    const cleanResult = (acq, result) => ({...coerceToPlainObject(acq), ...coerceToPlainObject(result)})
-    const hookResult = (acq, result) => passThru(hook, acq, result)
-    const handleResultPossiblePromise = (acq, result) => {
-      const resultIsPromise = isPromise(result)
-      if (resultIsPromise) return result.then(result => handleResult(acq, result))
-      return handleResult(acq, result)
-    }
-    const handleAcqPossiblePromise = (acq) => {
-      const acqIsPromise = isPromise(acq)
-      if (acqIsPromise) return acq.then(acq => handleResultPossiblePromise(acq, fn(acq)))
-      return handleResultPossiblePromise(acq, fn(acq))
-    }
-    return handleAcqPossiblePromise(acq)
-  }, state)
-}
-
-export const fnFree_ERROR_FN_NOT_FN = 'fn arg is not function type'
-export const fnFree_ERROR_RESOLVE_NOT_FN = 'resolve arg is not function type'
-
-export const fnFree = (fn, resolve) => {
-  if (typeof fn !== 'function') throw new Error(fnFree_ERROR_FN_NOT_FN)
-  if (typeof resolve !== 'function') throw new Error(fnFree_ERROR_RESOLVE_NOT_FN)
-  const main = (...args) => {
-    const fnResult = fn.apply(null, args)
-    if (isPromise(fnResult)) return fnResult.then(resolve)
-    return resolve(fnResult)
-  }
-  main.journey = fn
-  main.results = fn
-  main.data = fn
-  main.flow = fn
-  main.core = fn
-  main.fall = fn
-  return main
-}
+import {clone, get, mapValues, zipObject} from 'lodash'
+import coerceToArray from '@reggi/journey.coerce-to-array'
+import fnFree from '@reggi/journey.fn-free'
+import fnReduce from '@reggi/journey.fn-reduce'
 
 export const journey = (fnOfFns, opts = {}) => {
   let resolve
@@ -82,7 +35,7 @@ export const journey = (fnOfFns, opts = {}) => {
     const fns = fnOfFns.apply(null, args)
     return fnReduce(fns, {}, opts.hook)
   }
-  return fnFree(fn, resolve)
+  return fnFree(fn, resolve, ['journey', 'results', 'data', 'flow', 'core', 'fall'])
 }
 
 export default journey
