@@ -73,7 +73,7 @@ test('to work with async error', () => {
   const example = journey(() => [
     async () => ({meow: true}),
     async () => {
-      throw new Error ('hello meow')
+      throw new Error('hello meow')
     },
     async () => ({woof: true})
   ])

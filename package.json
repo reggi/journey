@@ -6,7 +6,8 @@
   "scripts": {
     "babel": "babel ./index.js --out-file ./index.build.js",
     "babel:watch": "npm run babel -- --watch",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "test:result": "npm run test --silent &>/dev/null || echo $?"
   },
   "babel": {
     "plugins": [
