@@ -1,9 +1,11 @@
 {
   "name": "@reggi/journey",
   "version": "1.0.0",
+  "author": "Thomas Reggi",
   "main": "./index.build.js",
   "scripts": {
     "babel": "babel ./index.js --out-file ./index.build.js",
+    "babel:watch": "npm run babel -- --watch",
     "test": "jest --coverage"
   },
   "babel": {
@@ -42,6 +44,13 @@
     "babel-jest": "^22.4.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "jest": "^22.4.2"
+    "jest": "^22.4.2",
+    "standard": "^11.0.0"
+  },
+  "standard": {
+    "globals": [
+      "expect",
+      "test"
+    ]
   }
 }
