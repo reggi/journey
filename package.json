@@ -6,6 +6,7 @@
   "scripts": {
     "babel": "babel ./index.js --out-file ./index.build.js",
     "babel:watch": "npm run babel -- --watch",
+    "standard": "standard",
     "test": "jest --coverage",
     "test:result": "npm run test --silent &>/dev/null || echo $?"
   },
@@ -25,6 +26,7 @@
     ]
   },
   "jest": {
+    "collectCoverage": true,
     "coverageThreshold": {
       "global": {
         "branches": 100,
@@ -42,16 +44,26 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.2",
     "babel-jest": "^22.4.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "jest": "^22.4.2",
     "standard": "^11.0.0"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "standard": {
     "globals": [
       "expect",
-      "test"
+      "test",
+      "beforeEach",
+      "afterEach"
+    ],
+    "parser": "babel-eslint",
+    "ignore": [
+      "index.build.js"
     ]
   }
 }
