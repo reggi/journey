@@ -28,9 +28,6 @@
   },
   "jest": {
     "collectCoverage": true,
-    "coverageReporters": [
-      "json"
-    ],
     "coverageThreshold": {
       "global": {
         "branches": 100,
