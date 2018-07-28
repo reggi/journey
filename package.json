@@ -1,6 +1,6 @@
 {
   "name": "@reggi/journey",
-  "version": "1.0.142",
+  "version": "1.0.143",
   "description": "Reduce based functional flow control",
   "author": "Thomas Reggi",
   "main": "./index.build.js",
